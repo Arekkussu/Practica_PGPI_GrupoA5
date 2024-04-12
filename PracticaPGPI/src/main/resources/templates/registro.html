@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <!-- Añade el CSS de Bootstrap desde un CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!--Formulario de Registro-->
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="shadow rounded p-4" style=" background-color: #fffefe; width: 400px">
+            <main class="form-signin">
+                <form data-bitwarden-watching="1">
+                    <!-- Contenido del formulario -->
+                    <img class="mb-4" src="/images/Logo_PixelTech.jpg" alt="Logo PixelTech" width="100%" height="100%">
+                    <h1 class="h3 mb-3 fw-normal">Registro</h1>
+                    <div class="form-floating mt-2">
+                        <label for="floatingPassword">Nombre:</label>
+                        <input type="text" class="form-control" id="floatingName" placeholder="Nombre">
+                    </div>
+
+                    <div class="form-floating mt-2">
+                        <label for="floatingPassword">Apellidos:</label>
+                        <input type="text" class="form-control" id="floatingApellidos" placeholder="Apellidos">
+                    </div>
+
+                    <div class="form-floating mt-2">
+                        <label for="floatingInput">Correo:</label>
+                        <input type="email" class="form-control" id="floatingInput" placeholder="email@pixeltech.com">
+                    </div>
+
+                    <div class="form-floating mt-2">
+                        <label for="floatingPassword">Contraseña:</label>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+                    </div>
+
+                    <button class="btn w-100 py-2 mt-3" type="submit" style="background-color:#298483; color: #fffefe">Registro</button>
+                    <p class="mt-4 text-center">¿Ya tienes una cuenta? <a href="/login" style="color:#298483;">Inicia Sesión</a></p>
+                    <p class="mt-3 mb-3 text-body-secondary">©PixelTech 2024</p>
+                </form>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal para Confirmación -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Registro Exitoso</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Usuario registrado correctamente. Inicia sesión para continuar.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" onclick="window.location.href='/login'"  style="background-color:#298483; color:#fffefe;">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Añade JavaScript de Bootstrap y dependencias desde un CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Añade el JavaScript de la validación del formulario -->
+    <script src="/js/registro.js"></script>
+</body>
+</html>
