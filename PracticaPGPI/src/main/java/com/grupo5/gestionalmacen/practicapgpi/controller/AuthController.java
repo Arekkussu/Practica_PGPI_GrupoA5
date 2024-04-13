@@ -3,6 +3,7 @@ package com.grupo5.gestionalmacen.practicapgpi.controller;
 import com.grupo5.gestionalmacen.practicapgpi.model.User;
 import com.grupo5.gestionalmacen.practicapgpi.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
@@ -33,7 +34,7 @@ public class AuthController {
         if(isAuthenticated) {
             return ResponseEntity.ok().body("{\"message\": \"Usuario autenticado con éxito\"}");
         } else {
-            return ResponseEntity.badRequest().body("Credenciales incorrectas");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"error\": \"Credenciales incorrectas\"}");
         }
     }
 

@@ -3,9 +3,23 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
+        const correo = document.getElementById('floatingInput').value;
+        const contrasena = document.getElementById('floatingPassword').value;
+
+        // Validaciones
+        if (!validateEmail(correo)) {
+            showModal('Error', 'Por favor, ingresa un correo electrónico válido.');
+            return;
+        }
+
+        if (!contrasena.trim()) {
+            showModal('Error', 'Por favor, ingresa tu contraseña.');
+            return;
+        }
+
         const loginData = {
-            correo: document.getElementById('floatingInput').value,
-            contrasena: document.getElementById('floatingPassword').value
+            correo: correo,
+            contrasena: contrasena
         };
 
         fetch('/auth/login', {
@@ -16,11 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
             body: JSON.stringify(loginData),
         })
             .then(response => {
-                if (response.ok) {
-                    return response.json(); // Asume que la respuesta es JSON solo si la respuesta es exitosa
-                } else {
-                    throw new Error('Failed to log in'); // Lanza un error si la respuesta no es 200 OK
+                if (!response.ok) {
+                    throw new Error('Failed to log in: ' + response.statusText);
                 }
+                return response.json();
             })
             .then(data => {
                 console.log('Success:', data);
@@ -28,8 +41,25 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch((error) => {
                 console.error('Error:', error);
-                alert('Hubo un error al iniciar sesión. Por favor, inténtalo de nuevo.'); // Muestra un mensaje de error al usuario
+                showModal('Error', 'Hubo un error al iniciar sesión. Por favor, inténtalo de nuevo.');
             });
     });
 
+    function validateEmail(email) {
+        const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    function showModal(title, message) {
+        document.getElementById('modalLabel').textContent = title;
+        document.getElementById('modalMessage').textContent = message;
+        const modalButton = document.getElementById('modalButton');
+
+        // Configura el evento click para cerrar el modal
+        modalButton.onclick = function() {
+            $('#messageModal').modal('hide');
+        };
+
+        $('#messageModal').modal('show');
+    }
 });

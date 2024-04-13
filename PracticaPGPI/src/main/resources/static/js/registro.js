@@ -10,24 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validaciones
         if (!nombre.trim()) {
-            showAlert('Por favor, ingresa tu nombre.');
+            showModal('Error', 'Por favor, ingresa tu nombre.');
             return;
         }
 
         if (!apellidos.trim()) {
-            showAlert('Por favor, ingresa tus apellidos.');
+            showModal('Error', 'Por favor, ingresa tus apellidos.');
             return;
         }
 
         if (!validateEmail(correo)) {
-            showAlert('Por favor, ingresa un correo electrónico válido.');
+            showModal('Error', 'Por favor, ingresa un correo electrónico válido.');
             return;
         }
 
         if (contrasena.length < 6) {
-            showAlert('La contraseña debe tener al menos 6 caracteres.');
+            showModal('Error', 'La contraseña debe tener al menos 6 caracteres.');
             return;
         }
+
         const user = {
             nombre: nombre,
             apellidos: apellidos,
@@ -49,12 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(data => {
-                console.log('Success:', data);
-                $('#successModal').modal('show');
+                showModal('Éxito', 'Usuario registrado correctamente.', true);
             })
             .catch((error) => {
                 console.error('Error:', error);
-                showAlert('Hubo un error al realizar el registro. Por favor, inténtalo de nuevo.'); // Muestra un mensaje de error al usuario
+                showModal('Error', 'Hubo un error al realizar el registro. Por favor, inténtalo de nuevo.');
             });
     });
 
@@ -63,7 +63,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return re.test(String(email).toLowerCase());
     }
 
-    function showAlert(message) {
-        alert(message); // Considera reemplazar este alert por otro modal para consistencia.
+    function showModal(title, message, redirect=false) {
+        document.getElementById('modalLabel').textContent = title;
+        document.getElementById('modalMessage').textContent = message;
+        const modalButton = document.getElementById('modalButton');
+        if (redirect) {
+            modalButton.onclick = function() { window.location.href = ' /login'; };
+        } else {
+            modalButton.onclick = function() { $('#messageModal').modal('hide'); };
+        }
+        $('#messageModal').modal('show');
     }
 });
