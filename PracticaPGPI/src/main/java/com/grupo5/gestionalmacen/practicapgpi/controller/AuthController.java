@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 public class AuthController {
 
     @Autowired
-    private AuthService authService; // Inyecta tu clase de servicio.
+    private AuthService authService; // Inyecta la clase del Servicio.
     private static final Logger log = LoggerFactory.getLogger(AuthController.class);
 
 
