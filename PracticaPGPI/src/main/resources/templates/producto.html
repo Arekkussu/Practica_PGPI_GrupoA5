@@ -3,17 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <title>Producto</title>
-    <!-- Añade el CSS de Bootstrap desde un CDN -->
+    <!-- CSS de Bootstrap desde un CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column" style="min-height: 100vh; background-color: #fbfbfb;">
 
-    <h1>Producto</h1>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d1e8e2">
+        <a class="navbar-brand">
+            <img src="/images/PixelTech.jpg" width="40%" height="40%" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/inicio">Inicio</a>
+                <a class="nav-item nav-link active" href="/producto">Producto <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/poblacion">Población</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="container mt-5">
+        <div class="card border-0 shadow-sm p-4 mb-4 rounded" style="background-color: #ececec"> <!-- Contenedor con bordes redondeados -->
+            <h2 class="text-center mb-4">Formulario de Productos</h2>
+            <form>
+                <div class="form-group">
+                    <label for="campaignName">Nombre de la Campaña:</label>
+                    <input type="text" class="form-control" id="campaignName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productName">Nombre del Producto:</label>
+                    <input type="text" class="form-control" id="productName" required>
+                </div>
+                <!-- Fila para dos columnas -->
+                <div class="form-row">
+                    <div class="col-md-6 mb-3"> <!-- Columna izquierda para cantidad en stock -->
+                        <label for="quantityInStock">Cantidad en Stock:</label>
+                        <input type="number" class="form-control" id="quantityInStock" required>
+                    </div>
+                    <div class="col-md-6 mb-3"> <!-- Columna derecha para tiempo de entrega -->
+                        <label for="deliveryTime">Tiempo de entrega (días):</label>
+                        <input type="text" class="form-control" id="deliveryTime" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn" style="background-color:#298483; color:#fffefe;">Registrar Producto</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Confirmación -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Mensaje del Sistema</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalMessage">Mensaje por defecto.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" id="modalButton" style="background-color:#298483; color:#fffefe;">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="footer mt-auto bg-light">
+        <div class="container text-center py-3">
+            <span class="text-muted">©PixelTech 2024</span>
+        </div>
+    </footer>
 
 
-    <!-- Añade JavaScript de Bootstrap y dependencias desde un CDN -->
+    <!-- JavaScript de Bootstrap y dependencias desde un CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- JavaScript -->
+    <script src="/js/producto.js"></script>
 </body>
 </html>

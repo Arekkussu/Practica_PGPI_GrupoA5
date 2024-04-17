@@ -6,12 +6,54 @@
     <!-- Añade el CSS de Bootstrap desde un CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column" style="min-height: 100vh; background-color: #fbfbfb;">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d1e8e2">
+        <a class="navbar-brand">
+            <img src="/images/PixelTech.jpg" width="40%" height="40%" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/inicio">Inicio</a>
+                <a class="nav-item nav-link" href="/producto">Producto </a>
+                <a class="nav-item nav-link active" href="/poblacion">Población <span class="sr-only">(current)</span></a>
+            </div>
+        </div>
+    </nav>
+    <!-- Tabla Productos -->
+    <div class="container mt-5">
+        <h2>Lista de Productos</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nombre de la Campaña</th>
+                <th>Nombre del Producto</th>
+                <th>Cantidad en Stock</th>
+                <th>Tiempo de Entrega</th>
+            </tr>
+            </thead>
+            <tbody id="productTableBody">
+            <!-- Los productos se llenarán mediante JavaScript -->
+            </tbody>
+        </table>
+    </div>
 
-    <h1>Población</h1>
-    <!-- Añade JavaScript de Bootstrap y dependencias desde un CDN -->
+    <!-- Pie de página -->
+    <footer class="footer mt-auto bg-light">
+        <div class="container text-center py-3">
+            <span class="text-muted">©PixelTech 2024</span>
+        </div>
+    </footer>
+    
+    <!-- JavaScript de Bootstrap y dependencias desde un CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript poblacion -->
+    <script src="/js/poblacion.js"></script>
 </body>
 </html>

@@ -5,22 +5,21 @@
     <title>Inicio</title>
     <!-- Añade el CSS de Bootstrap desde un CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Añade el enlace a tu archivo CSS externo -->
-    <link href="/css/estilos.css" rel="stylesheet">
+
 </head>
-<body>
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="/inicio">
-            <img src="/images/Logo_PixelTech.jpg" alt="Logo PixelTech" width="60%" height="60%">
-        </a>
-    </nav>
+<body class="d-flex flex-column" style="min-height: 100vh; background-color: #fbfbfb;">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d1e8e2">
+    <a class="navbar-brand">
+        <img src="/images/PixelTech.jpg" width="40%" height="40%" alt="Logo">
+    </a>
+</nav>
     <!-- Contenido de la página -->
-    <div class="container container-principal d-flex flex-column justify-content-center align-items-center text-center">
+    <div class="container container-principal d-flex flex-column justify-content-center align-items-center text-center mt-5">
         <!-- Logo y texto de bienvenida -->
         <div class="row mb-4">
             <div class="col-12">
-                <img src="/images/UFVHumanitaria.jpg" alt="Logo PixelTech">
+                <img src="/images/Logo_UFVHumanitaria.jpg" alt="Logo PixelTech">
                 <h4>¡Bienvenido UFVHumanitaria!</h4>
                 <p> Para gestionar la labor humanitaria entre Alemania y Nueva Zelanda PixelTech te ofrece la siguiente plataforma de gestión del stock.
                     Nuestra aplicación está diseñada para simplificar y optimizar este proceso, permitiéndote concentrarte en lo que realmente importa: ayudar a quienes más lo necesitan.
@@ -47,8 +46,8 @@
     </div>
 
     <!-- Pie de página -->
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container text-center">
+    <footer class="footer mt-auto bg-light">
+        <div class="container text-center py-3">
             <span class="text-muted">©PixelTech 2024</span>
         </div>
     </footer>
